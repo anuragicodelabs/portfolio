@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { SocialIcon } from 'react-social-icons';
 import { ThemeContext } from 'styled-components';
 import endpoints from '../constants/endpoints';
+import routing from '../constants';
 
 const styles = {
   iconStyle: {
@@ -21,7 +22,7 @@ function Social() {
     })
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.social));
   }, []);
 
   return (

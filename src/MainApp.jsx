@@ -4,6 +4,7 @@ import FallbackSpinner from './components/FallbackSpinner';
 import NavBarWithRouter from './components/NavBar';
 import Home from './components/Home';
 import endpoints from './constants/endpoints';
+import routing from './constants';
 
 function MainApp() {
   const [data, setData] = useState(null);
@@ -14,7 +15,7 @@ function MainApp() {
     })
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.routes));
   }, []);
 
   return (

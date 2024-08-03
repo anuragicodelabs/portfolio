@@ -10,6 +10,7 @@ import endpoints from '../constants/endpoints';
 import FallbackSpinner from './FallbackSpinner';
 import '../css/experience.css';
 import { useCheckMobileScreen } from './utils/hooks';
+import routing from '../constants';
 
 const styles = {
   ulStyle: {
@@ -49,7 +50,7 @@ function Experience(props) {
     })
       .then((res) => res.json())
       .then((res) => setData(res.experiences))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.experiences));
   }, []);
 
   const isMobile = useCheckMobileScreen();

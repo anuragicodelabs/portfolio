@@ -8,6 +8,7 @@ import endpoints from '../constants/endpoints';
 import Header from './Header';
 import FallbackSpinner from './FallbackSpinner';
 import '../css/education.css';
+import routing from '../constants';
 
 function Education(props) {
   const theme = useContext(ThemeContext);
@@ -22,7 +23,7 @@ function Education(props) {
     })
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.education));
 
     if (window?.innerWidth < 576) {
       setMode('VERTICAL');

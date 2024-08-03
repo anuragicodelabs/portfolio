@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import Header from './Header';
 import endpoints from '../constants/endpoints';
 import FallbackSpinner from './FallbackSpinner';
+import routing from '../constants';
 
 const styles = {
   iconStyle: {
@@ -35,7 +36,7 @@ function Skills(props) {
     })
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.skills));
   }, []);
 
   return (

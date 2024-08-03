@@ -4,6 +4,7 @@ import Fade from 'react-reveal';
 import endpoints from '../constants/endpoints';
 import Social from './Social';
 import FallbackSpinner from './FallbackSpinner';
+import routing from '../constants';
 
 const styles = {
   nameStyle: {
@@ -30,7 +31,7 @@ function Home() {
     })
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.home));
   }, []);
 
   return data ? (

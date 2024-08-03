@@ -7,6 +7,7 @@ import Header from './Header';
 import endpoints from '../constants/endpoints';
 import ProjectCard from './projects/ProjectCard';
 import FallbackSpinner from './FallbackSpinner';
+import routing from '../constants';
 
 const styles = {
   containerStyle: {
@@ -29,7 +30,7 @@ const Projects = (props) => {
     })
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.projects));
   }, []);
   const numberOfItems = showMore && data ? data.length : 6;
   return (

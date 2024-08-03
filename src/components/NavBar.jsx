@@ -6,6 +6,7 @@ import styled, { ThemeContext } from 'styled-components';
 import endpoints from '../constants/endpoints';
 import ThemeToggler from './ThemeToggler';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import routing from '../constants/index';
 
 const styles = {
   logoStyle: {
@@ -53,7 +54,7 @@ const NavBar = () => {
     })
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => err);
+      .catch((err) => err && setData(routing.navbar));
   }, []);
 
   return (
